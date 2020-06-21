@@ -22,8 +22,11 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Boilerplate</title>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <body data-spy="scroll" data-target="main-nav" id="home">
+    <nav
+      class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"
+      id="main-nav"
+    >
       <div class="container">
         <a href="index.html" class="navbar-brand">Theme One</a>
         <button
@@ -370,6 +373,26 @@
     ></script>
     <script>
       $("#year").text(new Date().getFullYear());
+
+      $("body").scrollspy({ target: "#main-nav" });
+
+      $("#main-nav a").on("click", function (event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+
+          const hash = this.hash;
+
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            600,
+            function () {
+              window.location.hash = hash;
+            }
+          );
+        }
+      });
     </script>
   </body>
 </html>
