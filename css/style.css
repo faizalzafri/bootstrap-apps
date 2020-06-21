@@ -43,8 +43,8 @@ body {
 
 #explore-section .fas,
 #share-section .fas {
-  color: #333;
-  background: #fff;
+  color: #fff;
+  background: #008ed6;
   padding: 5px;
   border-radius: 5px;
 }
